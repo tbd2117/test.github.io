@@ -17,7 +17,7 @@ library(wordcloud2)
 set.seed(1)
 ```
 
-```{r, eval = TRUE, echo = FALSE, message = FALSE}
+```{r, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
 trump_df = 
   merge(
     read_csv("./datasets/trump1.csv"),
@@ -67,7 +67,7 @@ main_tweets_usa =
    select(tweet, hashtag, winner_party)
 ```
 
-```{r, eval = TRUE, echo = FALSE, message = FALSE}
+```{r, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
 wordcount_df = function(df) {
   
   library(tm)
@@ -139,7 +139,7 @@ renderWordcloud2({
    ) %>% 
       slice_tail(prop = .90) %>% 
       wordcount_df() %>% 
-      wordcloud2(size=1.5, color = 'random-dark', ellipticity = 1.5)
+      wordcloud2(size = 1.5, color = 'random-dark', ellipticity = 1.5)
    
 })
    wordcloud2Output('wordcloud2')
