@@ -113,38 +113,34 @@ wordcount_df = function(df) {
 }
 ```
 
-Column {.sidebar}
+Controls {.sidebar}
 -----------------------------------------------------------------------
 
 ```{r, echo= FALSE}
+Hashtag_choice = c("Biden", "Trump")
    
-   Hashtag_choice = c("Biden", "Trump")
-   
-   # Define the UI
-   ui <- bootstrapPage(
-      selectInput("Hashtag_choice",h3("Hashtag"),choices = Hashtag_choice, selected = "Biden"),
-     wordcloud2Output('wordcloud2')
-   )
+selectInput(
+   "Hashtag_choice",
+   h3("Hashtag"),
+   choices = Hashtag_choice, 
+   selected = "Biden"
+)
 ```
 
-Column
+WordCloud
 -----------------------------------------------------------------------
 
 ```{r, echo= FALSE}
-server <- function(input, output) {
-      output$wordcloud2 <- renderWordcloud2({
+renderWordcloud2({
    
-      main_tweets_usa %>% 
-      filter(
-          hashtag == input[["Hashtag_choice"]]
-       ) %>% 
-      slice_tail(prop = .99) %>% 
+   main_tweets_usa %>% 
+   filter(
+      hashtag == input[["Hashtag_choice"]]
+   ) %>% 
+      slice_tail(prop = .90) %>% 
       wordcount_df() %>% 
       wordcloud2(size=1.5, color = 'random-dark', ellipticity = 1.5)
-         
-})
    
-   }
-
-   shinyApp(ui = ui, server = server)
+})
+   wordcloud2Output('wordcloud2')
 ```

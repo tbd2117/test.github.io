@@ -5,8 +5,6 @@ navbar:
   right:
     - text: "WordCloud"
       href: wordcloud.html
-    - text: "Resume"
-      href: resume.html
     - icon: fa-envelope fa-lg
       href: mailto:<tbd2117@columbia.com>
     - icon: fa-github fa-lg
