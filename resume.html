@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Resume</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="resume.html">Resume</a>
+</li>
+<li>
+  <a href="mailto:&lt;tbd2117@columbia.com&gt;">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://github.com/tbd2117/">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/taraujomd/">
+    <span class="fab fa fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/deAraujoMD">
+    <span class="fab fa fab fa-twitter-square fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Resume</h1>
+
+</div>
+
+
+<p><br></p>
+<div id="education" class="section level3">
+<h3>Education</h3>
+<div class="line-block"><strong>Columbia University Mailman School of Public Health</strong>, New York, NY<br />
+    <em>Master of Public Health</em>, M.P.H., Biostatistics <span style="float:right">Expected May 2021</span><br />
+          Certificate in Advanced Epidemiology<br />
+          Jorge Paulo Lemann Fellowship. Full tuition, merit award.</div>
+<p> </p>
+<div class="line-block"><strong>Universidade Federal de Ciências da Saúde De Porto Alegre</strong>, Porto Alegre-Brazil<br />
+    <em>Ph.D. in Health Sciences</em> - Clinical and Surgical Therapeutics <span style="float:right">Aug 2020</span><br />
+          Thesis: “Evaluation of Intraoperative Cholangiograms with Filling Defects: Comparative Analysis of Transcystic Duct Catheter Maintenance Postoperatively in Clinical Outcomes”.<br><br />
+    <em>M.D.</em> <span style="float:right">Dec 2015</span><br />
+          6-year program; CRM Federal License #41065</div>
+<p> </p>
+<div class="line-block"><strong>Saint Louis University</strong>, St. Louis, MO<br />
+     <em>Brazil Science Mobility Program</em> <span style="float:right">Aug 2012 - Jul 2013</span><br />
+          Presidential Scholarship Recipient. Federally funded, all expenses paid.<br />
+          Undergraduate, Graduate, and Medicine Coursework - GPA 4.0 (4.0 scale)<br></div>
+<p> </p>
+</div>
+<div id="residency-training" class="section level3">
+<h3>Residency Training</h3>
+<div class="line-block"><strong>Hospital de Clínicas de Porto Alegre</strong>, Porto Alegre, RS-Brazil<br />
+     <em>General Surgery Residency</em> <span style="float:right">Mar 2017 – Feb 2019</span><br />
+          Specialist Registry #37476<br></div>
+<p> </p>
+</div>
+<div id="professional" class="section level3">
+<h3>Professional</h3>
+<div class="line-block"><strong>General Surgeon</strong> <span style="float:right">Mar 2019 – Jul 2019</span><br />
+      <em>Urgent Care Unit(UPA 24h), Gravataí</em>, RS-Brazil<br />
+          Evaluated patients and diagnosed and managed surgery-related disorders in a Level IV trauma center/emergency facility. Conducted surgical consultations and performed ambulatory elective surgical procedures.<br />
+<br />
+<strong>Emergency Department Physician</strong> <span style="float:right">Dec 2015 – Jul 2019</span><br />
+      <em>Instituto de Cardiologia – Hospital de Viamão</em>, Viamão, RS-Brazil<br />
+          Evaluated patients and diagnosed and managed cases in a Level II emergency reference center. Treated a high proportion of poor and socially neglected patients who had receive care solely based on the national universal health system. Progressed from low- to high-complexity cases and the emergency room, to step-down secondary unit, to ICU backup physician, varying from one 12-hour shift per week to 80 hours per week.<br />
+<br />
+<strong>Second Lieutenant Medical Officer</strong> <span style="float:right">Mar 2016 – Feb 2017</span><br />
+      <em>Brazilian Army – 3rd Engineering Battle Command</em>, Cachoeira do Sul, RS-Brazil<br />
+          Chief Medical Officer for the 3rd Engineering Battle Command. Provided health care to 3,000 service members. Performed general medical evaluations, diagnoses, and treatment, medical audits, and military documentation review. Supervised missions and training and provided technical advice in legal cases.<br />
+<br />
+<strong>Emergency Department Physician</strong> <span style="float:right">Mar 2016 – Feb 2017</span><br />
+      <em>Hospital de Caridade e Beneficência</em>, Cachoeira do Sul, RS-Brazil<br />
+          Evaluated, diagnosed, and managed cases in a Level III emergency regional reference center.</div>
+<p> </p>
+</div>
+<div id="research" class="section level3">
+<h3>Research</h3>
+<div class="line-block"><strong>University of Colorado, School of Medicine, Surgery-Surgical Oncology</strong>, Denver, CO<br />
+      <em>Research Assistant</em> <span style="float:right">May 2020 - currently</span><br />
+      * Research assistant to Dr. Ana Gleisner, MD, PhD.<br />
+      * Developing multilevel models for assessing de-implementation of several different clinical practices in surgical oncology<br />
+<br />
+<strong>Columbia University Medical Center, Department of Anesthesiology</strong>, New York, NY<br />
+      <em>Research Assistant</em> <span style="float:right">Oct 2019 - currently</span><br />
+      * Research assistant to Dr. George Hasko, MD, PhD.<br />
+      * Conducting survival surgery for experiments on A2A Adenosine Receptors signaling in sepsis<br />
+<br />
+      <em>Clinical Research Assistant</em> <span style="float:right">June 2019 - currently</span><br />
+      * Clinical Research assistant to Dr. Gebhard Wagener, MD.<br />
+      * Conducting subject’s enrollment and sample processing for a clinical study assessing A2A Adenosine Receptors signaling in septic patients<br />
+<br />
+<strong>Urology Department, Hospital de Clínicas de Porto Alegre</strong>, Porto Alegre, RS - Brazil<br />
+      <em>Research and Statistics Consultant</em> <span style="float:right">Mar 2017 – Dec 2017</span><br />
+      * Streamlined all concurrent studies of the department in development, grant writing, data coding and entry strategies, presentation set up, and paper submission.<br />
+<br />
+<strong>Brigham and Women’s Hospital, Plastic Surgery Department</strong>, Boston, MA<br />
+      <em>Research Assistant</em> <span style="float:right">May 2013 – Aug 2013</span><br />
+      * Clinical research assistant to Dr. Yoon Chun, MD.<br />
+      * Performed patient records review, managed database, provided partial statistical analysis/reports for breast oncology studies, including the Mastectomy Research Outcomes Consortium (MROC).<br />
+<br />
+<strong>Hospital São Francisco, Complexo Hospitalar Santa Casa</strong>, Porto Alegre, RS – Brazil<br />
+      <em>Research Assistant, Biostatistics Trainee</em> <span style="float:right">Aug 2011 – Nov 2014</span><br />
+      * Research Assistant to Mauro Pontes, MD, MSc, PhD.<br />
+      * Joined the Heart Team of Hospital São Francisco for a comprehensive SPSS training to work on several cardiac surgery outcomes projects.<br></div>
+<p> </p>
+</div>
+<div id="publications" class="section level3">
+<h3>Publications</h3>
+<p>Gleisner, AL, Moss A, Friedman C, Suresh K, Grunwald G, Torphy RJ, Leonard LD, Colborn K, Ahrendt G, Tevis S, Christian N, Abud VL, <strong>de Araujo TB</strong>, Thieu D, Glorioso TJ, Daugherty S. De-implementation of axillary dissection in women with breast cancer is largely driven by contextual effects. Annals of Surg. 2020 (Provisionally Accepted)</p>
+<p><strong>de Araujo TB</strong>, Jotz GP, Zaki CH, Mantelli RA, Fernandes VF, Pretto GG, Volkweis BS, Corso CO, &amp; Cavazzola LT.. Intraoperative Cholangiography with Filling Defects: Comparative Complication Analysis of Postoperative Transcystic Duct (TCD) Catheter Maintenance.<a href="https://doi.org/10.1007/s00464-020-08133-y">Surg Endosc</a> (Published 11/05/2020)</p>
+<p>Bortolini T, Lucena IRS, da Silva Batezini NS, Rosito TE, <strong>de Araujo TB</strong>, Carneiro BB, Tavares PM, Souza PC, Neto BS. Can dynamic ultrasonography replace urodynamics in the follow-up of patients with myelomeningocele? A prospective concurrent study. <a href="https://doi.org/10.1002/nau.23846">Neurology and Urodynamics</a>. 2019, Jan; 83(1): 278-284.PMID:<a href="https://pubmed.ncbi.nlm.nih.gov/30350876/">30350876</a>.</p>
+<p><strong>de Araujo TB</strong>, Jue Xu M, Susarla SM, Shmelev K, Jiang W, Pribaz JJ, Hergrueter C, Carty MJ, Caterson S, Chun YS. Impact of Prior Unilateral Chest Wall Radiotherapy on Outcomes in Bilateral Breast Reconstruction. <a href="https://journals.lww.com/plasreconsurg/Abstract/2016/10000/Impact_of_Prior_Unilateral_Chest_Wall_Radiotherapy.3.aspx">Plast Reconstr Surg</a>. Oct; 138(4): 575-580.PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/27673527/">27673527</a>.</p>
+<p><strong>de Araujo TB</strong>, Silveira FR, Souza DL, Strey YT, Flores CD, &amp; Webster RS. Impact of video game genre on surgical skills development: A feasibility study. <a href="https://www.journalofsurgicalresearch.com/article/S0022-4804(15)00809-4/fulltext">Journal of Surgical Education</a>. 2016, Mar; 201(1): 235-243. Cited in PubMed; PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/26850208/">26850208</a>.</p>
+<p>Webster RS, Goldoni BD, Netto R, <strong>de Araujo TB</strong>, Ely PB. Tissue expander capsule for abdominal wall in autologous breast reconstruction. <a href="https://journals.lww.com/prsgo/Fulltext/2014/11000/Tissue_Expander_Capsule_for_Abdominal_Wall_in.8.aspx">Plastic and Reconstructive Surgery - Global Open</a>. 2014, Dec; 2(11): 247. Cited in PubMed; PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/25506530/">25506530</a>.</p>
+<p>Webster RS, Goldoni BD, Netto R, Rech D, <strong>de Araujo TB</strong>, Ely PB. Breast reconstruction with perforator flaps: use of the DIEAP flap at the Plastic Surgery Service of UFCSPA and Santa Casa de Misericórdia de Porto Alegre. <a href="http://www.dx.doi.org/10.5935/2177-1235.2014RBCP0070">Brazilian Plastic Surgery Journal</a>.2014, Aug; 29(3): 384-389.</p>
+<p> </p>
+</div>
+<div id="teaching-volunteer-and-leadership" class="section level3">
+<h3>Teaching, Volunteer, and Leadership</h3>
+<div class="line-block"><strong>Urgent Care Unit (UPA 24h) Viamão</strong>, Viamão, Brazil<br />
+      Volunteer General Surgeon <span style="float:right">Aug 2018 - Jul 2019</span><br />
+<br />
+<strong>Hospital de Clínicas de Porto Alegre</strong>, Porto Alegre, RS-Brazil<br />
+      Instructor, Central Venous Catheter Institutional Training – Instructor <span style="float:right">Mar - May 208</span><br />
+<br />
+<strong>Universidade Federal de Ciências da Saude de Porto Alegre</strong>, Porto Alegre, RS - Brazil<br />
+      Plastic Surgery Academic Interest Group <span style="float:right">Aug 2013 - Dec 2014</span><br />
+      Founder; President (2013); Scientific Director (2014)<br />
+<br />
+<strong>Universidade Federal de Ciências da Saude de Porto Alegre</strong>, Porto Alegre, RS – Brazil<br />
+      Initiation to Teaching Program Scholarship <span style="float:right">Mar - Dec 2010</span><br />
+      Project: “Bioinformatics Applied to the Health Sciences”<br />
+<br />
+<strong>Pontifícia Universidade Católica do Rio Grande do Sul</strong>, Porto Alegre, RS – Brazil<br />
+      Instructor, Surgical Research and Medical Skills Laboratory Animal Research [Jun 2010 – Dec 2010]<br />
+<br />
+<strong>Universidade Federal de Ciências da Saude de Porto Alegre</strong>, Porto Alegre, RS - Brazil<br />
+      Trauma Surgery Academic Interest Group <span style="float:right">Mar 2009 - Dec 2010</span><br />
+<br />
+<strong>Universidade Federal de Ciências da Saude de Porto Alegre</strong>, Porto Alegre, RS – Brazil<br />
+      Teacher Assistant, Human Anatomy <span style="float:right">Mar – Jul 2012</span><br />
+      Teacher Assistant, Medical Informatics <span style="float:right">Mar - Dec 2010</span></div>
+<p> </p>
+</div>
+<div id="additional-information" class="section level3">
+<h3>Additional Information</h3>
+<div class="line-block">Software<br />
+   Advanced: SAS, IBM SPSS, MS Office<br />
+   Beginner: R<br />
+<br />
+Native Fluency in Portuguese.<br />
+Highly proficient / Full professional proficiency in English.<br />
+Working proficiency in Spanish.</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
