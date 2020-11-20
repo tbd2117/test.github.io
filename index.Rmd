@@ -1,0 +1,29 @@
+---
+title: "Thiago de Araujo, MD PhD"
+output: 
+  html_document:
+    after_body: footer.html
+---
+<br>
+<img src="images/WEB_me.jpg" style="width:30%;padding-right: 20px" align="left">
+
+### Hello,
+
+I am a Brazilian General Surgeon, currently pursuing a Masters of Public Health from Columbia University Mailman SPH's Biostatistics Department. 
+
+I am also a General Surgery Residency applicant in this Match cycle, aiming towards a career as an academic surgeon in the U.S.
+
+My clinical interest lies in the intersection between surgical oncology and hepatobiliary pancreatic surgery.
+
+My research interests are clinical outcomes and de-implementation science, as well as surgical education.
+
+I live with my dear wife, Rafaela, and our dog, Zelda. We enjoy spending time in parks, traveling, eating carbs, drinking wine, watching Netflix, and playing boardgames.
+
+&nbsp;
+
+
+In [this page](resume.html) you can find my academic and professional experiences. 
+
+&nbsp;
+<hr />
+<p style="text-align: center;"><a href="https://www.google.com/maps/place/722+W+168th+St,+New+York,+NY+10032,+EUA/data=!4m2!3m1!1s0x89c2f69bc090f8cb:0x4c1891b68d80a519?sa=X&ved=2ahUKEwjb5oLjxebsAhWoD7kGHfr4DkQQ8gEwAHoECAQQAQ">New York, NY-USA</a> | <a href="https://www.google.com/maps/place/HCPA+-+Hospital+de+Cl%C3%ADnicas+de+Porto+Alegre/@-30.0386844,-51.208619,17z/data=!3m1!4b1!4m5!3m4!1s0x9519784ebb3943df:0xe484226d1bf56a44!8m2!3d-30.0386891!4d-51.206425">Porto Alegre, RS-Brazil</a></p>

@@ -1,0 +1,155 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+<br>
+
+### Education
+
+| **Columbia University Mailman School of Public Health**, New York, NY 
+|     *Master of Public Health*, M.P.H., Biostatistics [Expected May 2021]{style="float:right"}
+|           Certificate in Advanced Epidemiology
+|           Jorge Paulo Lemann Fellowship. Full tuition, merit award.
+
+&nbsp;
+
+
+| **Universidade Federal de Ciências da Saúde De Porto Alegre**, Porto Alegre-Brazil
+|     *Ph.D. in Health Sciences* - Clinical and Surgical Therapeutics [Aug 2020]{style="float:right"}
+|           Thesis: “Evaluation of Intraoperative Cholangiograms with Filling Defects: Comparative Analysis of             Transcystic Duct Catheter Maintenance Postoperatively in Clinical Outcomes”.<br>
+|     *M.D.*	[Dec 2015]{style="float:right"}
+|           6-year program; CRM Federal License #41065
+
+&nbsp;
+
+
+| **Saint Louis University**, St. Louis, MO
+|      *Brazil Science Mobility Program* [Aug 2012 - Jul 2013]{style="float:right"}
+|           Presidential Scholarship Recipient. Federally funded, all expenses paid.
+|           Undergraduate, Graduate, and Medicine Coursework - GPA 4.0 (4.0 scale)<br>
+
+&nbsp;
+
+
+### Residency Training
+
+| **Hospital de Clínicas de Porto Alegre**, Porto Alegre, RS-Brazil
+|      *General Surgery Residency* [Mar 2017 – Feb 2019]{style="float:right"}
+|           Specialist Registry #37476<br>
+
+&nbsp;
+
+
+### Professional
+
+| **General Surgeon**	[Mar 2019 – Jul 2019]{style="float:right"}
+|       _Urgent Care Unit(UPA 24h), Gravataí_, RS-Brazil	
+|           Evaluated patients and diagnosed and managed surgery-related disorders in a Level IV trauma center/emergency facility. Conducted surgical consultations and performed ambulatory elective surgical procedures.
+| 
+| **Emergency Department Physician**	[Dec 2015 – Jul 2019]{style="float:right"}
+| 	    _Instituto de Cardiologia – Hospital de Viamão_, Viamão, RS-Brazil
+| 	        Evaluated patients and diagnosed and managed cases in a Level II emergency reference center. Treated a high proportion of poor and socially neglected patients who had receive care solely based on the national universal health system. Progressed from low- to high-complexity cases and the emergency room, to step-down secondary unit, to ICU backup physician, varying from one 12-hour shift per week to 80 hours per week.
+|
+| **Second Lieutenant Medical Officer**	[Mar 2016 – Feb 2017]{style="float:right"}
+| 	    _Brazilian Army – 3rd Engineering Battle Command_, Cachoeira do Sul, RS-Brazil
+| 	        Chief Medical Officer for the 3rd Engineering Battle Command. Provided health care to 3,000 service members. Performed general medical evaluations, diagnoses, and treatment, medical audits, and military documentation review. Supervised missions and training and provided technical advice in legal cases.
+|
+| **Emergency Department Physician**	[Mar 2016 – Feb 2017]{style="float:right"}
+|       _Hospital de Caridade e Beneficência_, Cachoeira do Sul, RS-Brazil	
+|           Evaluated, diagnosed, and managed cases in a Level III emergency regional reference center.
+
+&nbsp;
+
+
+### Research
+| **University of Colorado, School of Medicine, Surgery-Surgical Oncology**, Denver, CO
+|       *Research Assistant* [May 2020 - currently]{style="float:right"}
+|       *	Research assistant to Dr. Ana Gleisner, MD, PhD.
+|       *	Developing multilevel models for assessing de-implementation of several different clinical practices in surgical oncology
+| 	
+| **Columbia University Medical Center, Department of Anesthesiology**, New York, NY
+|       *Research Assistant*	[Oct 2019 - currently]{style="float:right"}
+|       *	Research assistant to Dr. George Hasko, MD, PhD.
+|       *	Conducting survival surgery for experiments on A2A Adenosine Receptors signaling in sepsis
+| 	
+|       *Clinical Research Assistant*	[June 2019 - currently]{style="float:right"}
+|       *	Clinical Research assistant to Dr. Gebhard Wagener, MD.
+|       *	Conducting subject’s enrollment and sample processing for a clinical study assessing A2A Adenosine Receptors signaling in septic patients
+| 	
+| **Urology Department, Hospital de Clínicas de Porto Alegre**, Porto Alegre, RS - Brazil
+|       *Research and Statistics Consultant*	[Mar 2017 – Dec 2017]{style="float:right"}
+|       *	Streamlined all concurrent studies of the department in development, grant writing, data coding and entry strategies, presentation set up, and paper submission.	
+| 
+| **Brigham and Women’s Hospital, Plastic Surgery Department**, Boston, MA
+|       *Research Assistant*	[May 2013 – Aug 2013]{style="float:right"}
+|       *	Clinical research assistant to Dr. Yoon Chun, MD.
+|       *	Performed patient records review, managed database, provided partial statistical analysis/reports for breast oncology studies, including the Mastectomy Research Outcomes Consortium (MROC).
+| 	
+| **Hospital São Francisco, Complexo Hospitalar Santa Casa**, Porto Alegre, RS – Brazil
+|       *Research Assistant, Biostatistics Trainee*	[Aug 2011 – Nov 2014]{style="float:right"}
+|       *	Research Assistant to Mauro Pontes, MD, MSc, PhD.
+|       *	Joined the Heart Team of Hospital São Francisco for a comprehensive SPSS training to work on several cardiac surgery outcomes projects.<br>
+
+&nbsp;
+
+
+### Publications
+
+Gleisner, AL, Moss A, Friedman C, Suresh K, Grunwald G, Torphy RJ, Leonard LD, Colborn K, Ahrendt G, Tevis S, Christian N, Abud VL, **de Araujo TB**, Thieu D, Glorioso TJ, Daugherty S. De-implementation of axillary dissection in women with breast cancer is largely driven by contextual effects. Annals of Surg. 2020 (Provisionally Accepted)
+
+**de Araujo TB**, Jotz GP, Zaki CH, Mantelli RA, Fernandes VF, Pretto GG, Volkweis BS, Corso CO, & Cavazzola LT.. Intraoperative Cholangiography with Filling Defects: Comparative Complication Analysis of Postoperative Transcystic Duct (TCD) Catheter Maintenance.[Surg Endosc](https://doi.org/10.1007/s00464-020-08133-y) (Published 11/05/2020)
+
+Bortolini T, Lucena IRS, da Silva Batezini NS, Rosito TE, **de Araujo TB**, Carneiro BB, Tavares PM, Souza PC, Neto BS. Can dynamic ultrasonography replace urodynamics in the follow-up of patients with myelomeningocele? A prospective concurrent study. [Neurology and Urodynamics](https://doi.org/10.1002/nau.23846). 2019, Jan; 83(1): 278-284.PMID:[30350876](https://pubmed.ncbi.nlm.nih.gov/30350876/).
+
+**de Araujo TB**, Jue Xu M, Susarla SM, Shmelev K, Jiang W, Pribaz JJ, Hergrueter C, Carty MJ, Caterson S, Chun YS. Impact of Prior Unilateral Chest Wall Radiotherapy on Outcomes in Bilateral Breast Reconstruction. [Plast Reconstr Surg](https://journals.lww.com/plasreconsurg/Abstract/2016/10000/Impact_of_Prior_Unilateral_Chest_Wall_Radiotherapy.3.aspx). Oct; 138(4): 575-580.PMID: [27673527](https://pubmed.ncbi.nlm.nih.gov/27673527/).
+
+**de Araujo TB**, Silveira FR, Souza DL, Strey YT, Flores CD, & Webster RS. Impact of video game genre on surgical skills development: A feasibility study. [Journal of Surgical Education](https://www.journalofsurgicalresearch.com/article/S0022-4804(15)00809-4/fulltext). 2016, Mar; 201(1): 235-243. Cited in PubMed; PMID: [26850208](https://pubmed.ncbi.nlm.nih.gov/26850208/).
+
+Webster RS, Goldoni BD, Netto R, **de Araujo TB**, Ely PB. Tissue expander capsule for abdominal wall in autologous breast reconstruction. [Plastic and Reconstructive Surgery - Global Open](https://journals.lww.com/prsgo/Fulltext/2014/11000/Tissue_Expander_Capsule_for_Abdominal_Wall_in.8.aspx). 2014, Dec; 2(11): 247. Cited in PubMed; PMID: [25506530](https://pubmed.ncbi.nlm.nih.gov/25506530/).
+
+Webster RS, Goldoni BD, Netto R, Rech D, **de Araujo TB**, Ely PB.  Breast reconstruction with perforator flaps: use of the DIEAP flap at the Plastic Surgery Service of UFCSPA and Santa Casa de Misericórdia de Porto Alegre. [Brazilian Plastic Surgery Journal](http://www.dx.doi.org/10.5935/2177-1235.2014RBCP0070).2014, Aug; 29(3): 384-389.
+
+&nbsp;
+
+
+### Teaching, Volunteer, and Leadership
+
+| **Urgent Care Unit (UPA 24h) Viamão**, Viamão, Brazil
+|       Volunteer General Surgeon [Aug 2018 - Jul 2019]{style="float:right"}
+|
+| **Hospital de Clínicas de Porto Alegre**, Porto Alegre, RS-Brazil
+|       Instructor, Central Venous Catheter Institutional Training – Instructor [Mar - May 208]{style="float:right"}
+|
+| **Universidade Federal de Ciências da Saude de Porto Alegre**, Porto Alegre, RS - Brazil
+|       Plastic Surgery Academic Interest Group [Aug 2013 - Dec 2014]{style="float:right"}
+|       Founder; President (2013); Scientific Director (2014)
+|
+| **Universidade Federal de Ciências da Saude de Porto Alegre**, Porto Alegre, RS – Brazil
+|       Initiation to Teaching Program Scholarship [Mar - Dec 2010]{style="float:right"}
+|       Project: “Bioinformatics Applied to the Health Sciences”
+| 
+| **Pontifícia Universidade Católica do Rio Grande do Sul**, Porto Alegre, RS – Brazil
+|       Instructor, Surgical Research and Medical Skills Laboratory Animal Research [Jun 2010 – Dec 2010]
+| 
+| **Universidade Federal de Ciências da Saude de Porto Alegre**, Porto Alegre, RS - Brazil
+|       Trauma Surgery Academic Interest Group [Mar 2009 - Dec 2010]{style="float:right"}
+| 
+| **Universidade Federal de Ciências da Saude de Porto Alegre**, Porto Alegre, RS – Brazil
+|       Teacher Assistant, Human Anatomy [Mar – Jul 2012]{style="float:right"}
+|       Teacher Assistant, Medical Informatics [Mar - Dec 2010]{style="float:right"}
+  
+&nbsp;
+
+
+### Additional Information
+
+| Software
+|    Advanced: SAS, IBM SPSS, MS Office 
+|    Beginner: R
+| 
+| Native Fluency in Portuguese. 
+| Highly proficient / Full professional proficiency in English. 
+| Working proficiency in Spanish.
