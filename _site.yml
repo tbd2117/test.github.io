@@ -3,6 +3,8 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
+    - text: "WordCloud"
+      href: wordcloud.html
     - text: "Resume"
       href: resume.html
     - icon: fa-envelope fa-lg

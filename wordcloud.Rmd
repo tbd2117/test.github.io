@@ -1,0 +1,150 @@
+---
+title: "wordcloud"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(flexdashboard)
+library(shiny)
+library(wordcloud2)
+
+set.seed(1)
+```
+
+```{r, eval = TRUE, echo = FALSE, message = FALSE}
+trump_df = 
+  merge(
+    read_csv("./datasets/trump1.csv"),
+    read_csv("./datasets/trump2.csv"),
+    all = TRUE
+  ) %>%
+  select(!X1) %>%
+  mutate(hashtag = "Trump")
+
+biden_df = 
+  merge(
+    read_csv("./datasets/biden1.csv"),
+    read_csv("./datasets/biden2.csv"),
+    all = TRUE
+  ) %>%
+  select(!X1) %>%
+  mutate(hashtag = "Biden")
+
+tweets_usa =
+  merge(biden_df, trump_df, all = TRUE) %>% 
+  filter(country == "United States of America")
+
+election_df =
+  read_csv("./datasets/president_county_candidate.csv") %>% 
+  group_by(state, party) %>% 
+  mutate(party_total = sum(total_votes)) %>% 
+  ungroup() %>% 
+  group_by(state) %>%
+  mutate(state_winner = case_when(
+                      party_total == max(party_total) ~ TRUE,
+                      party_total != max(party_total) ~ FALSE),
+         state_total = sum(total_votes)
+  )
+
+state_election_df = 
+  election_df %>% 
+  filter(state_winner == TRUE) %>% 
+  select(state, candidate, party, party_total, state_total) %>% 
+  distinct()
+
+main_tweets_usa = 
+  left_join(tweets_usa, state_election_df, by = "state") %>% 
+  rename(
+    winner_candidate = candidate,
+    winner_party = party
+  ) %>% 
+   select(tweet, hashtag, winner_party)
+```
+
+```{r, eval = TRUE, echo = FALSE, message = FALSE}
+wordcount_df = function(df) {
+  
+  library(tm)
+
+  if (!is.data.frame(df)) {
+    stop("Input must be a dataframe")
+  }
+  
+  df_text = 
+    df %>% 
+    slice_sample(n = 1000) %>% 
+    select(tweet) %>%
+    mutate(
+       tweet = gsub("#[[:alpha:]]*", "", tweet),
+       tweet = gsub("@[[:alpha:]]*", "", tweet),
+       tweet = gsub("https\\S*", "", tweet),
+       tweet = gsub("http\\S*", "", tweet),
+       tweet = gsub("@\\S*", "", tweet),
+       tweet = gsub("amp", "", tweet),
+       tweet = gsub("[\r\n]", "", tweet),
+       tweet = gsub("[0-9]", "", tweet),
+       tweet = gsub("[[:punct:]]", "", tweet)
+    )
+  
+  docs_df =
+    Corpus(VectorSource(df_text)) %>% 
+    tm_map(removeNumbers) %>%
+    tm_map(removePunctuation) %>%
+    tm_map(stripWhitespace) %>% 
+    tm_map(content_transformer(tolower)) %>% 
+    tm_map(removeWords, stopwords("english"))
+  
+  words_df = 
+    TermDocumentMatrix(docs_df) %>% 
+    as.matrix() %>% 
+    rowSums() %>% 
+    sort(decreasing = TRUE)
+  
+  word_count_df = data.frame(word = names(words_df),freq = words_df)
+
+  return(word_count_df)
+  
+}
+```
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r, echo= FALSE}
+   
+   Hashtag_choice = c("Biden", "Trump")
+   
+   # Define the UI
+   ui <- bootstrapPage(
+      selectInput("Hashtag_choice",h3("Hashtag"),choices = Hashtag_choice, selected = "Biden"),
+     wordcloud2Output('wordcloud2')
+   )
+```
+
+Column
+-----------------------------------------------------------------------
+
+```{r, echo= FALSE}
+server <- function(input, output) {
+      output$wordcloud2 <- renderWordcloud2({
+   
+      main_tweets_usa %>% 
+      filter(
+          hashtag == input[["Hashtag_choice"]]
+       ) %>% 
+      slice_tail(prop = .99) %>% 
+      wordcount_df() %>% 
+      wordcloud2(size=1.5, color = 'random-dark', ellipticity = 1.5)
+         
+})
+   
+   }
+
+   shinyApp(ui = ui, server = server)
+```
