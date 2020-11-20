@@ -13,6 +13,7 @@ library(tidyverse)
 library(flexdashboard)
 library(shiny)
 library(wordcloud2)
+library(tm)
 
 set.seed(1)
 ```
@@ -69,8 +70,6 @@ main_tweets_usa =
 
 ```{r, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
 wordcount_df = function(df) {
-  
-  library(tm)
 
   if (!is.data.frame(df)) {
     stop("Input must be a dataframe")
@@ -118,12 +117,11 @@ Controls {.sidebar}
 
 ```{r, echo= FALSE}
 Hashtag_choice = c("Biden", "Trump")
-   
-selectInput(
+
+radioButtons(
    "Hashtag_choice",
    h3("Hashtag"),
-   choices = Hashtag_choice, 
-   selected = "Biden"
+   choices = Hashtag_choice
 )
 ```
 
@@ -137,10 +135,40 @@ renderWordcloud2({
    filter(
       hashtag == input[["Hashtag_choice"]]
    ) %>% 
-      slice_tail(prop = .90) %>% 
       wordcount_df() %>% 
-      wordcloud2(size = 1.5, color = 'random-dark', ellipticity = 1.5)
+      slice(11:n()) %>%
+      wordcloud2(
+         size = 1.5, 
+         color = 'random-dark',
+         ellipticity = 1,
+         figPath = "usa.jpg"
+         )
    
 })
    wordcloud2Output('wordcloud2')
 ```
+
+
+```{r, eval = FALSE}
+biden_text = 
+   main_tweets_usa %>% 
+   filter(
+      hashtag == "Biden"
+   ) %>% 
+   wordcount_df() %>% 
+   slice(11:n())
+
+main_tweets_usa %>% 
+   filter(
+      hashtag == "Biden"
+   ) %>% 
+      wordcount_df() %>% 
+      slice(11:n()) %>%
+      wordcloud2(
+         size = 1.5, 
+         color = 'random-dark',
+         ellipticity = 1,
+         figPath = "usa.jpg"
+         )
+```
+

@@ -37,6 +37,11 @@ window.FlexDashboardComponents = [];
 <script src="site_libs/featherlight-1.3.5/featherlight.min.js"></script>
 <link href="site_libs/prism-1.4.1/prism.css" rel="stylesheet" />
 <script src="site_libs/prism-1.4.1/prism.js"></script>
+<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<link href="site_libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
+<script src="site_libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
+<script src="site_libs/wordcloud2-0.0.1/hover.js"></script>
+<script src="site_libs/wordcloud2-binding-0.2.2/wordcloud2.js"></script>
 <style type="text/css">
 
 /*
@@ -2627,18 +2632,46 @@ window.FlexDashboardComponents.push({
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<div id="section-column" class="section level2 sidebar">
-<h2>Column</h2>
+<div id="section-controls" class="section level2 sidebar">
+<h2>Controls</h2>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
+<div id="Hashtag_choice" class="form-group shiny-input-radiogroup shiny-input-container">
+<label class="control-label" for="Hashtag_choice">
+<h3>Hashtag</h3>
+</label>
+<div class="shiny-options-group">
+<div class="radio">
+<label>
+<input type="radio" name="Hashtag_choice" value="Biden" checked="checked"/>
+<span>Biden</span>
+</label>
 </div>
-<div id="section-column-1" class="section level2">
-<h2>Column</h2>
+<div class="radio">
+<label>
+<input type="radio" name="Hashtag_choice" value="Trump"/>
+<span>Trump</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div id="section-wordcloud" class="section level2">
+<h2>WordCloud</h2>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<iframe data-deferred-src="app87c86bd4df6164f5471fede3ab8a95f8/?w=&amp;__subapp__=1" width="100%" height="400" class="shiny-frame shiny-frame-deferred"></iframe>
+<p><div>
+<script>$(document).on('click', '#canvas', function(evt) { var id = evt.target.nextElementSibling.firstChild.id; word = document.getElementById(id).innerHTML; console.log(id); Shiny.onInputChange(id.replace('wcSpan','_clicked_word'), word); });</script>
+<div id="outaf5df70764e684a3" style="width:100%; height:400px; " class="wordcloud2 html-widget html-widget-output"></div>
+</div><div>
+<script>$(document).on('click', '#canvas', function(evt) { var id = evt.target.nextElementSibling.firstChild.id; word = document.getElementById(id).innerHTML; console.log(id); Shiny.onInputChange(id.replace('wcSpan','_clicked_word'), word); });</script>
+<div id="wordcloud2" style="width:100%; height:400px; " class="wordcloud2 html-widget html-widget-output"></div>
+</div></p>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
 </div>
 
 </div>
@@ -2675,11 +2708,12 @@ library(tidyverse)
 library(flexdashboard)
 library(shiny)
 library(wordcloud2)
+library(tm)
 
 set.seed(1)
 ```
 
-```{r, eval = TRUE, echo = FALSE, message = FALSE}
+```{r, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
 trump_df = 
   merge(
     read_csv("./datasets/trump1.csv"),
@@ -2729,10 +2763,8 @@ main_tweets_usa =
    select(tweet, hashtag, winner_party)
 ```
 
-```{r, eval = TRUE, echo = FALSE, message = FALSE}
+```{r, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
 wordcount_df = function(df) {
-  
-  library(tm)
 
   if (!is.data.frame(df)) {
     stop("Input must be a dataframe")
@@ -2775,41 +2807,66 @@ wordcount_df = function(df) {
 }
 ```
 
-Column {.sidebar}
+Controls {.sidebar}
 -----------------------------------------------------------------------
 
 ```{r, echo= FALSE}
-   
-   Hashtag_choice = c("Biden", "Trump")
-   
-   # Define the UI
-   ui <- bootstrapPage(
-      selectInput("Hashtag_choice",h3("Hashtag"),choices = Hashtag_choice, selected = "Biden"),
-     wordcloud2Output('wordcloud2')
-   )
+Hashtag_choice = c("Biden", "Trump")
+
+radioButtons(
+   "Hashtag_choice",
+   h3("Hashtag"),
+   choices = Hashtag_choice
+)
 ```
 
-Column
+WordCloud
 -----------------------------------------------------------------------
 
 ```{r, echo= FALSE}
-server <- function(input, output) {
-      output$wordcloud2 <- renderWordcloud2({
+renderWordcloud2({
    
-      main_tweets_usa %>% 
-      filter(
-          hashtag == input[["Hashtag_choice"]]
-       ) %>% 
-      slice_tail(prop = .99) %>% 
+   main_tweets_usa %>% 
+   filter(
+      hashtag == input[["Hashtag_choice"]]
+   ) %>% 
       wordcount_df() %>% 
-      wordcloud2(size=1.5, color = 'random-dark', ellipticity = 1.5)
-         
-})
+      slice(11:n()) %>%
+      wordcloud2(
+         size = 1.5, 
+         color = 'random-dark',
+         ellipticity = 1,
+         figPath = "usa.jpg"
+         )
    
-   }
-
-   shinyApp(ui = ui, server = server)
+})
+   wordcloud2Output('wordcloud2')
 ```
+
+
+```{r, eval = FALSE}
+biden_text = 
+   main_tweets_usa %>% 
+   filter(
+      hashtag == "Biden"
+   ) %>% 
+   wordcount_df() %>% 
+   slice(11:n())
+
+main_tweets_usa %>% 
+   filter(
+      hashtag == "Biden"
+   ) %>% 
+      wordcount_df() %>% 
+      slice(11:n()) %>%
+      wordcloud2(
+         size = 1.5, 
+         color = 'random-dark',
+         ellipticity = 1,
+         figPath = "usa.jpg"
+         )
+```
+
 </code></pre>
 </div>
 <script type="text/javascript">
