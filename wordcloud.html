@@ -2637,7 +2637,7 @@ window.FlexDashboardComponents.push({
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<div id="Hashtag_choice" class="form-group shiny-input-radiogroup shiny-input-container">
+<p><div id="Hashtag_choice" class="form-group shiny-input-radiogroup shiny-input-container">
 <label class="control-label" for="Hashtag_choice">
 <h3>Hashtag</h3>
 </label>
@@ -2655,16 +2655,9 @@ window.FlexDashboardComponents.push({
 </label>
 </div>
 </div>
-</div>
-</div>
-<div id="section-wordcloud" class="section level2">
-<h2>WordCloud</h2>
-<div class="knitr-options" data-fig-width="576" data-fig-height="460">
-
-</div>
-<p><div>
+</div><div>
 <script>$(document).on('click', '#canvas', function(evt) { var id = evt.target.nextElementSibling.firstChild.id; word = document.getElementById(id).innerHTML; console.log(id); Shiny.onInputChange(id.replace('wcSpan','_clicked_word'), word); });</script>
-<div id="outaf5df70764e684a3" style="width:100%; height:400px; " class="wordcloud2 html-widget html-widget-output"></div>
+<div id="outdbf945f43968b2e3" style="width:100%; height:400px; " class="wordcloud2 html-widget html-widget-output"></div>
 </div><div>
 <script>$(document).on('click', '#canvas', function(evt) { var id = evt.target.nextElementSibling.firstChild.id; word = document.getElementById(id).innerHTML; console.log(id); Shiny.onInputChange(id.replace('wcSpan','_clicked_word'), word); });</script>
 <div id="wordcloud2" style="width:100%; height:400px; " class="wordcloud2 html-widget html-widget-output"></div>
@@ -2709,6 +2702,9 @@ library(flexdashboard)
 library(shiny)
 library(wordcloud2)
 library(tm)
+library(htmlwidgets)
+library(htmltools)
+library(webshot)
 
 set.seed(1)
 ```
@@ -2772,7 +2768,7 @@ wordcount_df = function(df) {
   
   df_text = 
     df %>% 
-    slice_sample(n = 1000) %>% 
+ #   slice_sample(n = 1000) %>% 
     select(tweet) %>%
     mutate(
        tweet = gsub("#[[:alpha:]]*", "", tweet),
@@ -2792,7 +2788,8 @@ wordcount_df = function(df) {
     tm_map(removePunctuation) %>%
     tm_map(stripWhitespace) %>% 
     tm_map(content_transformer(tolower)) %>% 
-    tm_map(removeWords, stopwords("english"))
+    tm_map(removeWords, stopwords("english")) %>% 
+    tm_map(removeWords, stopwords("spanish"))
   
   words_df = 
     TermDocumentMatrix(docs_df) %>% 
@@ -2818,12 +2815,7 @@ radioButtons(
    h3("Hashtag"),
    choices = Hashtag_choice
 )
-```
 
-WordCloud
------------------------------------------------------------------------
-
-```{r, echo= FALSE}
 renderWordcloud2({
    
    main_tweets_usa %>% 
@@ -2831,12 +2823,11 @@ renderWordcloud2({
       hashtag == input[["Hashtag_choice"]]
    ) %>% 
       wordcount_df() %>% 
-      slice(11:n()) %>%
+      slice(-10) %>%
       wordcloud2(
          size = 1.5, 
          color = 'random-dark',
-         ellipticity = 1,
-         figPath = "usa.jpg"
+         ellipticity = 1
          )
    
 })
@@ -2851,20 +2842,25 @@ biden_text =
       hashtag == "Biden"
    ) %>% 
    wordcount_df() %>% 
-   slice(11:n())
+   slice(-2)
+
 
 main_tweets_usa %>% 
    filter(
-      hashtag == "Biden"
+      hashtag == "Trump"
    ) %>% 
       wordcount_df() %>% 
-      slice(11:n()) %>%
+      slice(21:n()) %>%
       wordcloud2(
          size = 1.5, 
          color = 'random-dark',
          ellipticity = 1,
          figPath = "usa.jpg"
          )
+
+hw = wordcloud2(biden_text,size = 1.5, color = 'random-dark')
+saveWidget(hw,"1.html",selfcontained = F)
+webshot::webshot("1.html","1.png",vwidth = 700, vheight = 500, delay =20)
 ```
 
 </code></pre>

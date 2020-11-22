@@ -14,6 +14,9 @@ library(flexdashboard)
 library(shiny)
 library(wordcloud2)
 library(tm)
+library(htmlwidgets)
+library(htmltools)
+library(webshot)
 
 set.seed(1)
 ```
@@ -77,7 +80,7 @@ wordcount_df = function(df) {
   
   df_text = 
     df %>% 
-    slice_sample(n = 1000) %>% 
+ #   slice_sample(n = 1000) %>% 
     select(tweet) %>%
     mutate(
        tweet = gsub("#[[:alpha:]]*", "", tweet),
@@ -97,7 +100,8 @@ wordcount_df = function(df) {
     tm_map(removePunctuation) %>%
     tm_map(stripWhitespace) %>% 
     tm_map(content_transformer(tolower)) %>% 
-    tm_map(removeWords, stopwords("english"))
+    tm_map(removeWords, stopwords("english")) %>% 
+    tm_map(removeWords, stopwords("spanish"))
   
   words_df = 
     TermDocumentMatrix(docs_df) %>% 
@@ -123,12 +127,7 @@ radioButtons(
    h3("Hashtag"),
    choices = Hashtag_choice
 )
-```
 
-WordCloud
------------------------------------------------------------------------
-
-```{r, echo= FALSE}
 renderWordcloud2({
    
    main_tweets_usa %>% 
@@ -136,12 +135,11 @@ renderWordcloud2({
       hashtag == input[["Hashtag_choice"]]
    ) %>% 
       wordcount_df() %>% 
-      slice(11:n()) %>%
+      slice(-10) %>%
       wordcloud2(
          size = 1.5, 
          color = 'random-dark',
-         ellipticity = 1,
-         figPath = "usa.jpg"
+         ellipticity = 1
          )
    
 })
@@ -156,19 +154,24 @@ biden_text =
       hashtag == "Biden"
    ) %>% 
    wordcount_df() %>% 
-   slice(11:n())
+   slice(-2)
+
 
 main_tweets_usa %>% 
    filter(
-      hashtag == "Biden"
+      hashtag == "Trump"
    ) %>% 
       wordcount_df() %>% 
-      slice(11:n()) %>%
+      slice(21:n()) %>%
       wordcloud2(
          size = 1.5, 
          color = 'random-dark',
          ellipticity = 1,
          figPath = "usa.jpg"
          )
+
+hw = wordcloud2(biden_text,size = 1.5, color = 'random-dark')
+saveWidget(hw,"1.html",selfcontained = F)
+webshot::webshot("1.html","1.png",vwidth = 700, vheight = 500, delay =20)
 ```
 
