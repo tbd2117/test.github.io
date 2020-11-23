@@ -1,5 +1,5 @@
 ---
-title: "wordcloud"
+title: "WordCloud"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -80,7 +80,7 @@ wordcount_df = function(df) {
   
   df_text = 
     df %>% 
- #   slice_sample(n = 1000) %>% 
+    slice_head(n = 1000) %>% 
     select(tweet) %>%
     mutate(
        tweet = gsub("#[[:alpha:]]*", "", tweet),
@@ -116,33 +116,86 @@ wordcount_df = function(df) {
 }
 ```
 
-Controls {.sidebar}
------------------------------------------------------------------------
 
-```{r, echo= FALSE}
-Hashtag_choice = c("Biden", "Trump")
-
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval = TRUE}
 radioButtons(
    "Hashtag_choice",
-   h3("Hashtag"),
-   choices = Hashtag_choice
+   h4("Tweets containing..."),
+   inline = TRUE,
+   choiceNames = list("#Biden / #JoeBiden", "#Trump / #DonaldTrump", "Both"),
+   choiceValues = list("Biden", "Trump", "Both")
+)
+radioButtons(
+   "Party_choice",
+   h4("Tweets from states won by..."),
+   inline = TRUE,
+   choiceNames = list("Democrats", "Republicans", "All States"),
+   choiceValues = list("DEM", "REP", "Both")
+)
+sliderInput(
+  "cut_top",
+  h4("Number of words removed from top..."),
+  min = 0, max = 10,
+  value = 3
 )
 
 renderWordcloud2({
-   
+  
+  if (input[["Hashtag_choice"]] == "Both" & input[["Party_choice"]] == "Both") {
+    
+    main_tweets_usa %>% 
+      wordcount_df() %>% 
+      slice_tail(n = nrow(.) - input[["cut_top"]]) %>%
+      wordcloud2(
+         size = 1, 
+         color = 'random-dark',
+         ellipticity = 1
+         )
+    
+  } else if (input[["Hashtag_choice"]] != "Both" & input[["Party_choice"]] != "Both") {
+    
    main_tweets_usa %>% 
+   filter(
+      hashtag == input[["Hashtag_choice"]],
+      winner_party == input[["Party_choice"]]
+   ) %>% 
+      wordcount_df() %>% 
+      slice_tail(n = nrow(.) - input[["cut_top"]]) %>%
+      wordcloud2(
+         size = 1, 
+         color = 'random-dark',
+         ellipticity = 1
+         )
+    
+  } else if (input[["Hashtag_choice"]] == "Both" & input[["Party_choice"]] != "Both") {
+  
+  main_tweets_usa %>% 
+   filter(
+      winner_party == input[["Party_choice"]]
+   ) %>% 
+      wordcount_df() %>% 
+      slice_tail(n = nrow(.) - input[["cut_top"]]) %>%
+      wordcloud2(
+         size = 1, 
+         color = 'random-dark',
+         ellipticity = 1
+         )
+  } else if (input[["Hashtag_choice"]] != "Both" & input[["Party_choice"]] == "Both") {
+  
+  main_tweets_usa %>% 
    filter(
       hashtag == input[["Hashtag_choice"]]
    ) %>% 
       wordcount_df() %>% 
-      slice(-10) %>%
+      slice_tail(n = nrow(.) - input[["cut_top"]]) %>%
       wordcloud2(
-         size = 1.5, 
+         size = 1, 
          color = 'random-dark',
          ellipticity = 1
          )
-   
+  }
 })
+
    wordcloud2Output('wordcloud2')
 ```
 
@@ -151,11 +204,20 @@ renderWordcloud2({
 biden_text = 
    main_tweets_usa %>% 
    filter(
-      hashtag == "Biden"
+     hashtag == "Biden"
    ) %>% 
    wordcount_df() %>% 
-   slice(-2)
+   tail(-3)
 
+trump_text = 
+   main_tweets_usa %>% 
+   filter(
+     hashtag == "Trump"
+   ) %>% 
+   wordcount_df() %>% 
+   slice_tail(n = nrow(.)-1)
+
+all = merge.data.frame(biden_text, trump_text)
 
 main_tweets_usa %>% 
    filter(
