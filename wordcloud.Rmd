@@ -1,9 +1,7 @@
 ---
 title: "WordCloud"
 output: 
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+  html_document:
     source: embed
 runtime: shiny
 ---
